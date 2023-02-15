@@ -1,6 +1,5 @@
 
 /* 
-
     You can write your own styles here...
     
     
@@ -8,5 +7,24 @@
     other sylesheets into your bunde as well, e.j:
     
     import 'relative/path/to/stylesheet.scss';
-
 */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+      
+  }
+  
+  .card {
+      background-color: rgb(228, 209, 187);
+      width: 700px;   
+  }
+  
+  .btn-close {
+    opacity: .000001;   
+  }
+  
+  #first {
+      background-color: rgb(188, 243, 194);   
+    }
