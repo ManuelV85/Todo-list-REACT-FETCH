@@ -9,22 +9,29 @@
     import 'relative/path/to/stylesheet.scss';
 */
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: white;  
+  color: black;
+ 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card {
+  background-color: whitesmoke;
+    width: 700px;   
+}
+
+.btn-close {
+  opacity: .000001;   
+}
+
+#first {
+    background-color: rgb(205, 206, 229);   
   }
-  
-  .card {
-      background-color: rgb(228, 209, 187);
-      width: 700px;   
-  }
-  
-  .btn-close {
-    opacity: .000001;   
-  }
-  
-  #first {
-      background-color: rgb(188, 243, 194);   
-    }
+
+ h5{
+  text-align: center;
+ }

@@ -13,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         const getTasks = async ()=>{
             try {
-                const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest")
+                const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/manuelv85")
                 if(!response.ok) {
                     throw new Error(response.status) 
                 }
@@ -32,7 +32,7 @@ const Home = () => {
         if(e.key ==='Enter'){
 			// Se cambió el valor que se le da a la tarea por el valor del estado
             const obj = [ ...tasks,{"label": e.target.value, "done": false}]
-            const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest", {
+            const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/manuelv85", {
                 method: "PUT", body: JSON.stringify(obj), mode: "cors", 
                 headers: {
                     'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const deleteTask = async (index) => {
 	//y retornamos el nuevo array sin ese elemento
     const tmp = tasks
     tmp.splice(index, 1)
-    const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest", {
+    const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/manuelv85", {
         method: "PUT", body: JSON.stringify(tmp), mode: "cors", 
         headers: {
             'Content-Type': 'application/json'
@@ -69,8 +69,8 @@ const deleteTask = async (index) => {
     <div className="container">
         <div className="card">
         <div className="card-body">
-            <h5> Task List.</h5>
-            <input  type="text" value={taskValue} className="form-control" placeholder="Enter task" onChange={(e) => setTaskValue(e.target.value)} onKeyDown={(e) => validate(e)}/>
+            <h5> TODO LIST</h5>
+            <input  type="text" value={taskValue} className="form-control" placeholder="Add New Task ..." onChange={(e) => setTaskValue(e.target.value)} onKeyDown={(e) => validate(e)}/>
 			<p></p>
 			<ul className="list-group">
             {tasks && tasks?.map ((item, index) => {
