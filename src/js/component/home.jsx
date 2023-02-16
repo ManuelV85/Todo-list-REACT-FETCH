@@ -13,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         const getTasks = async ()=>{
             try {
-                const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/vian")
+                const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest")
                 if(!response.ok) {
                     throw new Error(response.status) 
                 }
@@ -32,23 +32,34 @@ const Home = () => {
         if(e.key ==='Enter'){
 			// Se cambió el valor que se le da a la tarea por el valor del estado
             const obj = [ ...tasks,{"label": e.target.value, "done": false}]
-            const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/vian", {
+            const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest", {
                 method: "PUT", body: JSON.stringify(obj), mode: "cors", 
                 headers: {
                     'Content-Type': 'application/json'
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                   },
             })
-            const res = await response.json()
             setNewTask(current => [...current, taskValue])
-            setTasks(current=> [...tasks,...obj])
+            setTasks(current=> [...obj])
             e.target.value = "";
 			setTaskValue("")
         }
     }
-const deleteTask = (index) => {
+const deleteTask = async (index) => {
 	//Obtenemos el índice a traves del botón de eliminar, eliminamos ese espacio del array
 	//y retornamos el nuevo array sin ese elemento
+    const tmp = tasks
+    tmp.splice(index, 1)
+    const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/angeltest", {
+        method: "PUT", body: JSON.stringify(tmp), mode: "cors", 
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+    }
+       
+    )
+    setTasks([...tmp])
 	 setNewTask(current =>[
         ...current.slice(0, index),
         ...current.slice(index + 1, current.length)
